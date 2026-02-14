@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Valentine My Best Friend</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      color: white;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      max-width: 400px;
+      width: 90%;
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      font-size: 2rem;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 50px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .yes {
+      background: #00d084;
+      color: white;
+    }
+
+    .no {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    #photoContainer {
+      display: none;
+      margin-top: 25px;
+    }
+
+    #photoContainer img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    .floating {
+      position: fixed;
+      bottom: -50px;
+      font-size: 24px;
+      animation: floatUp 6s linear infinite;
+      z-index: 1;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-110vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>💖 Sarra,Happy Valentine's day will be My Best Friend Forever 💖</h1>
+
+    <div class="buttons">
+      <button class="yes" onclick="celebrate()">Oui ❤️</button>
+      <button class="no" onclick="moveNo(this)">Non 😢</button>
+    </div>
+
+    <div id="photoContainer">
+      <!-- Remplace le lien par votre photo -->
+      <img src="C:\Users\Jihen\Downloads\jihen-s.jpg" alt="Photo" />
+    </div>
+  </div>
+
+  <script>
+    function celebrate() {
+      document.getElementById("photoContainer").style.display = "block";
+
+      // Générer coeurs et ballons
+      for (let i = 0; i < 25; i++) {
+        createFloating("❤️");
+        createFloating("🎈");
+      }
+    }
+
+    function createFloating(symbol) {
+      const el = document.createElement("div");
+      el.className = "floating";
+      el.innerText = symbol;
+      el.style.left = Math.random() * 100 + "vw";
+      el.style.animationDuration = (Math.random() * 3 + 4) + "s";
+      document.body.appendChild(el);
+
+      setTimeout(() => el.remove(), 7000);
+    }
+
+    function moveNo(btn) {
+      const x = Math.random() * 200 - 100;
+      const y = Math.random() * 200 - 100;
+      btn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+  </script>
+</body>
+</html>
+
+
+
+
